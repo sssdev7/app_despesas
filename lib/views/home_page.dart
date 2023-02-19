@@ -56,10 +56,11 @@ class HomePage extends StatelessWidget {
                       height: 450,
                       width: 500,
                       child: FirestoreListView<Map<String, dynamic>>(
-                        query: _.costCollection,
+                        query: Controller.costCollection,
                         itemBuilder: (context, snapshot) {
                           Map<String, dynamic> map = snapshot.data();
-                          return Widgets.buildItemsCostList(map);
+                          String id = snapshot.id;
+                          return Widgets.buildItemsCostList(map, id);
                         }
                       ),
                     ),

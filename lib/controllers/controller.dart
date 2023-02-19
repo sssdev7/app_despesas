@@ -7,7 +7,7 @@ class Controller extends GetxController {
 
   Controller();
   late List<CostDetails> costList;
-  final costCollection = FirebaseFirestore.instance.collection('costs');
+  static final costCollection = FirebaseFirestore.instance.collection('costs');
 
   void saveCost (CostDetails newCost){
     costCollection.doc().set({
@@ -60,7 +60,7 @@ class Controller extends GetxController {
     }
   }
 
-  void deleteCost (CostDetails c) {
-    costCollection.doc().delete();
+  static void deleteCost (String id) {
+    costCollection.doc(id).delete();
   }
 }
