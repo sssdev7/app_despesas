@@ -1,4 +1,4 @@
-import 'package:app_despesas/controllers/controller.dart';
+import 'package:app_despesas/controllers/controller_cost_list.dart';
 import 'package:app_despesas/models/cost_details.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,13 +9,12 @@ class CostPage extends StatelessWidget {
 
   final TextEditingController titleController = TextEditingController();
   final TextEditingController valueController = TextEditingController();
-  final controller = Get.put(Controller());
+  final controller = Get.find<ControllerCostsList>();
   final CostDetails? cost;
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<Controller>(
-      init: Controller(),
+    return GetBuilder<ControllerCostsList>(
       builder: (_) {
 
         if(cost !=null){

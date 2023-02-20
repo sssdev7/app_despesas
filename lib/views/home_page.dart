@@ -1,11 +1,11 @@
 import 'package:firebase_ui_firestore/firebase_ui_firestore.dart';
 import 'package:flutter/material.dart';
-import '../controllers/controller.dart';
+import '../controllers/controller_cost_list.dart';
 import 'package:get/get.dart';
 import '../widgets/widgets.dart';
 
 class HomePage extends StatelessWidget {
-  final controller = Get.put(Controller());
+  final controller = Get.put(ControllerCostsList());
   String totalPaid = '';
   String totalPending = '';
   String totalCost = '';
@@ -14,8 +14,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<Controller>(
-      init: Controller(),
+    return GetBuilder<ControllerCostsList>(
       builder: (_) {
         _.sumAllValuesPaid().then((value) => totalPaid = value);
         _.sumAllValuesPending().then((value) => totalPending = value);
@@ -56,7 +55,7 @@ class HomePage extends StatelessWidget {
                       height: 450,
                       width: 500,
                       child: FirestoreListView<Map<String, dynamic>>(
-                        query: Controller.costCollection,
+                        query: ControllerCostsList.costCollection,
                         itemBuilder: (context, snapshot) {
                           Map<String, dynamic> map = snapshot.data();
                           String id = snapshot.id;

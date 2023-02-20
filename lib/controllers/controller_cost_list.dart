@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import '../models/cost_details.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class Controller extends GetxController {
+class ControllerCostsList extends GetxController {
 
-  Controller();
+  ControllerCostsList();
   late List<CostDetails> costList;
   static final costCollection = FirebaseFirestore.instance.collection('costs');
 

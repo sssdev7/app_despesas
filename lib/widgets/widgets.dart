@@ -2,10 +2,10 @@ import 'package:app_despesas/models/cost_details.dart';
 import 'package:app_despesas/views/cost_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/controller.dart';
+import '../controllers/controller_cost_list.dart';
 
 class Widgets {
-  final controller = Get.put(Controller());
+  final controller = Get.find<ControllerCostsList>();
 
   static Widget buildBox(String text, Color? color) {
     return Container(
@@ -43,7 +43,7 @@ class Widgets {
               const SizedBox(width: 320,),
               IconButton(
                 onPressed: () {
-                  Controller.deleteCost(id);
+                  ControllerCostsList.deleteCost(id);
                 },
                 icon: const Icon(Icons.delete),
               ),
